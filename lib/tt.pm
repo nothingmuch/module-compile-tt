@@ -75,15 +75,32 @@ tt - Preprocess Perl code with Template Toolkit and Module::Compile.
 
 =head1 SYNOPSIS
 
-	use tt ( subs => [qw/foo bar gorch/] );
 
-	[% FOREACH subname IN subs %]
-	sub [% subname %] {
-		warn "Hi, i'm [% subname %]";
+	package Foo;
+
+	# between 'use tt' and 'no tt' the source code will
+	# be process by Template Toolkit.
+
+	# This example generates source code for accessors:
+	use tt ( fields => [qw/foo bar gorch/] );
+
+	[% FOREACH fields IN fields %]
+
+	sub [% field %] {
+		my $self = shift;
+		$self->{'[% field %]'} = shift if @_;
+		return $self->{'[% field %]'};
 	}
+
 	[% END %]
 
 	no tt;
+
+	package main;
+
+	my $obj = Foo->new;
+
+	$obj->bar("moose");
 
 =head1 DESCRIPTION
 
