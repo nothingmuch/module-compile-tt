@@ -151,6 +151,9 @@ Due to L<Module::Compile>'s semantics the use line is actually fudged and
 string-evaled by this module, so it might break and you can't refer to
 lexicals.
 
+All uppercase parameters on the use line are treated as configuration options.
+I may add a list of TT configuration params later on.
+
 =head1 TODO
 
 Add all sorts of useful variables about the package that the template is
