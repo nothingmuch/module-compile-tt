@@ -81,7 +81,10 @@ tt - Preprocess Perl code with Template Toolkit and Module::Compile.
 	# between 'use tt' and 'no tt' the source code will
 	# be process by Template Toolkit.
 
-	# This example generates source code for accessors:
+	# This example generates source code for accessors.
+	# the specific problem is best solved with L<Moose> or
+	# L<Class::Accessor>, but the principal remains the same
+
 	use tt ( fields => [qw/foo bar gorch/] );
 
 	[% FOREACH fields IN fields %]
