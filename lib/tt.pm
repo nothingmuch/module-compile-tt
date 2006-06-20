@@ -111,6 +111,31 @@ This module uses Module::Compile to help you generate Perl code without using
 BEGIN/eval tricks and reducing readability, but without having to repeat
 yourself either.
 
+=head1 BUT SOURCE FILTERS BAD!!!!
+
+Yeah, source filters suck (normally) for two reasons, neither of which L<tt>
+suffers from:
+
+=over 4
+
+=item 1.
+
+They're kinda slow and may introduce fat dependencies for simple code.
+L<Module::Compile> fixes this.
+
+=item 2.
+
+They break down on edge cases. This is true for source filters that try to
+parse Perl, pretending to implement syntax extensions. Since L<tt> doesn't
+parse the perl code at all but operates on a very dumb string level it meets no
+edge cases.
+
+=back
+
+That said, string level preprocessing of source code sucks. However, since Perl
+doesn't have a convenient AST to write Lisp-style macros and deeper templates
+(that are aware of Perl's own semantics), this module does fill a niche.
+
 =head1 CONFIGURATION
 
 To configure L<Template> either subclass this module and override
