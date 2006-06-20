@@ -1,5 +1,8 @@
 package Module::Compile::TT;
 
+use strict;
+use warnings;
+
 1;
 
 =pod
