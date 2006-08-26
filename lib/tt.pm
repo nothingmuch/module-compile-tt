@@ -193,6 +193,12 @@ Currently L<Module::Compile> doesn't provide enough facilities for this.
 
 L<Template>, L<Module::Compile>, L<Filter::Simple>
 
+=head1 VERSION CONTROL
+
+This module is maintained using Darcs. You can get the latest version from
+L<http://nothingmuch.woobling.org/Module-Compile-TT/>, and use C<darcs send> to
+commit changes.
+
 =head1 AUTHOR
 
 Yuval Kogman <nothingmuch@woobling.org>
